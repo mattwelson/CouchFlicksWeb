@@ -1,6 +1,7 @@
 body {
   padding-top: 50px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  font-size: 16px !important; }
 
 /* Set padding to keep content from hitting the edges */
 /* Set width on the form input elements since they're 100% wide by default */
@@ -27,7 +28,9 @@ ul.posterGridContainer {
     width: 100%;
     min-width: 10%;
     height: auto;
-    overflow: hidden; }
+    overflow: hidden;
+    color: white;
+    cursor: pointer; }
     ul.posterGridContainer li.posterGridCell .posterGridImg {
       width: 100%; }
     @media (min-width: 600px) {
@@ -47,14 +50,35 @@ ul.posterGridContainer {
       width: 100%;
       position: absolute;
       z-index: 20;
-      color: white;
-      padding: 0 10px 10px;
+      padding: 10px;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
       height: 80%;
       bottom: -80%; }
       ul.posterGridContainer li.posterGridCell .detailContainer .details {
         position: absolute;
         bottom: 0; }
+    ul.posterGridContainer li.posterGridCell .iconContainer {
+      transition: 0.2s;
+      position: absolute;
+      top: 0;
+      z-index: 20;
+      padding: 10px;
+      font-size: 1.2em;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+      height: 20%;
+      top: -20%;
+      width: 100%; }
+      ul.posterGridContainer li.posterGridCell .iconContainer .left {
+        display: inline-block;
+        width: 50%; }
+      ul.posterGridContainer li.posterGridCell .iconContainer .right {
+        display: inline-block;
+        width: 50%;
+        text-align: right; }
+      ul.posterGridContainer li.posterGridCell .iconContainer .iconDetail {
+        padding-left: 5px; }
+    ul.posterGridContainer li.posterGridCell:hover .iconContainer {
+      top: 0; }
     ul.posterGridContainer li.posterGridCell:hover .detailContainer {
       bottom: 0; }
 

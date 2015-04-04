@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size:16px !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -35,6 +36,8 @@ ul.posterGridContainer {
         min-width: 10%;
         height: auto;
         overflow: hidden;
+        color: white;
+        cursor: pointer;
 
         .posterGridImg {
             width: 100%;
@@ -61,8 +64,7 @@ ul.posterGridContainer {
             width: 100%;
             position: absolute;
             z-index: 20;
-            color: white;
-            padding: 0 10px 10px;
+            padding: 10px;
             background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
             height: 80%;
             bottom: -80%;
@@ -73,8 +75,42 @@ ul.posterGridContainer {
             }
         }
 
-        &:hover .detailContainer{
-            bottom:0;
+        .iconContainer {
+            transition: 0.2s;
+            position: absolute;
+            top: 0;
+            z-index: 20;
+            padding: 10px;
+            font-size: 1.2em;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
+            height: 20%;
+            top: -20%;
+            width: 100%;
+
+            .left {
+                display: inline-block;
+                width: 50%;
+            }
+
+            .right {
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+            }
+
+            .iconDetail {
+                padding-left: 5px;
+            }
+        }
+
+        &:hover {
+            .iconContainer {
+                top: 0;
+            }
+
+            .detailContainer {
+                bottom: 0;
+            }
         }
     }
 }

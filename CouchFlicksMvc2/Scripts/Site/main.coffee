@@ -7,9 +7,12 @@ settings =
 
 class MovieStub
     constructor: (movie)->
-        { @title, @tagline, @overview } = movie
+        { @title, @tagline, @overview, @rating, @year } = movie
         @posterUrl = movie.images.poster.medium
         @traktId = movie.ids.trakt
+        @rating = @rating.toFixed(2)
+        if (@overview.length > 450) 
+            @overview = /.{400}[^\s]*/.exec(@overview) + '...';
 
 class MainViewModel
     constructor: ->
@@ -32,9 +35,6 @@ $ ->
     mainViewModel = new MainViewModel()
     ko.applyBindings mainViewModel
     mainViewModel.populateTrending { extended: 'full,images' }
-
-    #scroll rubbish
-    $('.posterGridCell').parallax('50%', 0.5)
 
 gotTrending = (data) ->
     console.log data

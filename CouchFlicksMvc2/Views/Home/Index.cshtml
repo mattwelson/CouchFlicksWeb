@@ -7,6 +7,13 @@
 <ul data-bind="foreach: movies" class="posterGridContainer">
     <li class="posterGridCell">
         <img data-bind="attr: { src: posterUrl }" class="posterGridImg" />@*<h3 data-bind="text: title"></h3>*@
+        <div class="iconContainer">
+            <div class="left">
+                <i class="fa fa-star"></i><span data-bind="text: rating" class="iconDetail"></span>
+            </div><div class="right">
+                <i class="fa fa-calendar"></i><span data-bind="text: year" class="iconDetail"></span>
+            </div>
+        </div>
         <div class="detailContainer">
             <div class="details">
                 <h3 data-bind="text: title"></h3>
@@ -19,8 +26,5 @@
 
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-    <script src="~/Scripts/jquery.localscroll-1.2.7-min.js"></script>
-    <script src="~/Scripts/jquery.scrollTo-1.4.2-min.js"></script>
-    <script src="~/Scripts/jquery.parallax-1.1.3.js"></script>
     <script src="/Scripts/Site/main.js"></script>
 }

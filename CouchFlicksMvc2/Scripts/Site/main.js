@@ -12,9 +12,13 @@
 
   MovieStub = (function() {
     function MovieStub(movie) {
-      this.title = movie.title, this.tagline = movie.tagline, this.overview = movie.overview;
+      this.title = movie.title, this.tagline = movie.tagline, this.overview = movie.overview, this.rating = movie.rating, this.year = movie.year;
       this.posterUrl = movie.images.poster.medium;
       this.traktId = movie.ids.trakt;
+      this.rating = this.rating.toFixed(2);
+      if (this.overview.length > 450) {
+        this.overview = /.{400}[^\s]*/.exec(this.overview) + '...';
+      }
     }
 
     return MovieStub;
@@ -54,10 +58,9 @@
     console.log('Ready');
     mainViewModel = new MainViewModel();
     ko.applyBindings(mainViewModel);
-    mainViewModel.populateTrending({
+    return mainViewModel.populateTrending({
       extended: 'full,images'
     });
-    return $('.posterGridCell').parallax('50%', 0.5);
   });
 
   gotTrending = function(data) {
